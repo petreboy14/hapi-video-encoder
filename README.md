@@ -43,7 +43,7 @@ This has started a minimal server running on port 8000 which will accept a media
 $ curl -X POST -F file=@video1.avi http://localhost:8000/media
 ```
 
-The result will be the path to the file which you can then browse to and admire :-)
+The result will be a job id which could be used to lookup information about the job if the user implements a tracking system.
 
 ## Options
 
@@ -134,7 +134,6 @@ The current default settings of ffmpeg are geared towards generating html5 compa
 ]
 
 ## TODO
-* Allow a reporting system to be configured that will allow notifications on transcoding progress, completions, and errors. Currently it's very much a fire and forget (and go look up manually later) process.
 * Allow a stream interface to pipe streaming transcodings to. This is useful for streaming media formats
 * Handle screenshot generation. FFmpeg allows for multiple screenshots while transcoding video. Want to expose this functionality.
 * Generate mulitple formats from same input stream. Right now you can only create 1 format from 1 input. 
