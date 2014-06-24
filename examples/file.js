@@ -17,19 +17,19 @@ server.pack.register({
 
 var encoderEvents = server.plugins['hapi-video-encoder'].events;
 
-encoderEvents.on('start', function (data) {
+encoderEvents.on('transcode-start', function (data) {
   console.log('started', data);
 });
 
-encoderEvents.on('progress', function (data) {
+encoderEvents.on('transcode-progress', function (data) {
   console.log('progress', data);
 });
 
-encoderEvents.on('stop', function (data) {
+encoderEvents.on('transcode-stop', function (data) {
   console.log('stop', data);
 });
 
-encoderEvents.on('error', function (error) {
+encoderEvents.on('transcode-error', function (error) {
   console.error('error', error);
 });
 
