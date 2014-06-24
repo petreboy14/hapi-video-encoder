@@ -80,7 +80,23 @@ server.pack.register({
 });
 ```
 
-## Output Mode
+## Output Modes
+ * File - The default output mode for transcoded media is to store it on the server. The location depends on the `file.outputPath` parameter. If it is missing the file will be stored in a temporary generic file. If `file.outputPath` is set in the plugin options media will be saved there. Lastly, the file location can be overwritten if the upload specifies a path: ie:
+
+    ```
+    $ curl -X POST -F file=@video1.avi http://localhost:8000/media;outputPath=/some/cool/path/file.m3v
+    ```
+ * S3 - If desired, transcoded media can be streamed to s3. Requirements for this are to specify `bucket` and `key`. If `bucket` is set in plugin options as described above then that bucket will be used for all uploads. The bucket can be overwritten for a single upload if it is specified in the payload such as:
+ 
+    ```
+    $ curl -X POST -F file=@video1.avi http://localhost:8000/media;bucket=uploads
+    ``` 
+
+The S3 key by default will be the filename that comes along with the form post metadata. This can be overwritten by specifying `key` in the payload:
+
+    ```
+    $ curl -X POST -F file=@video1.avi http://localhost:8000/media;key=/super/cool/key.mov
+    ```
 
 ## Considerations
 * Storage space - While most transcodings can be streamed into the transcoder there are some formats that have to be written to disk after transcoding (such as mp4). And some media formats (such as quicktime) must be read completely from disk before transcoding even begins. For this reason you should ensure that you have enough disk space to handle the expected amount of transcoding jobs. 
@@ -89,7 +105,7 @@ server.pack.register({
 
 
 ## References
-* [ffmpeg main site](https://www.ffmpeg.org/) The official ffmpeg website containing documentation and information on every single thing in the ffmpeg world. 
+* [ffmpeg main site](https://www.ffmpeg.org/) - The official ffmpeg website containing documentation and information on every single thing in the ffmpeg world. 
 * [h.264 encoding guide](https://trac.ffmpeg.org/wiki/Encode/H.264) - Some useful information about settings relevant to encoding with the libx264 library and useful for applications using web containers (mp4, ogg, etc). 
 * [ffmpeg streaming guide](https://trac.ffmpeg.org/wiki/StreamingGuide) - Relevant information for streaming transcoded media from ffmpeg.
 * [html5 video encoding guide](https://blog.mediacru.sh/2013/12/23/The-right-way-to-encode-HTML5-video.html) - Very helpful article for setting ffmpeg options when transcoding html5 compatible media.
