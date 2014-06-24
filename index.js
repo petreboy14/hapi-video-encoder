@@ -6,7 +6,9 @@ var defaultOptions = {
   file: {
     outputPath: __dirname + '/../this-is-a-test.mp4'
   },
-  s3: {},
+  s3: {
+    acl: 'bucket-owner-full-control'
+  },
   fileParam: 'file',
   route: {
     path: '/media',
