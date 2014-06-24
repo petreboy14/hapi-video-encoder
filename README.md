@@ -92,7 +92,7 @@ server.pack.register({
     $ curl -X POST -F file=@video1.avi http://localhost:8000/media;bucket=uploads
     ``` 
 
-The S3 key by default will be the filename that comes along with the form post metadata. This can be overwritten by specifying `key` in the payload:
+  The S3 key by default will be the filename that comes along with the form post metadata. This can be overwritten by specifying `key` in the payload:
 
     ```
     $ curl -X POST -F file=@video1.avi http://localhost:8000/media;key=/super/cool/key.mov
