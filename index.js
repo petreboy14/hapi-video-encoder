@@ -3,9 +3,7 @@ var encoder = require('./lib/encoder');
 
 var defaultOptions = {
   output: 'file',
-  file: {
-    outputPath: __dirname + '/../this-is-a-test.mp4'
-  },
+  file: {},
   s3: {
     acl: 'bucket-owner-full-control'
   },
