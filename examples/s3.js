@@ -8,9 +8,7 @@ server.pack.register({
     s3: {
       accessKey: 'AWS_KEY',
       secretKey: 'AWS_SECRET',
-      region: 'us-west-2',
-      bucket: 'revolt_user_uploads',
-      key: '/encoded.mp4'
+      region: 'us-west-2'
     }
   }
 }, function (err) {
