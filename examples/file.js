@@ -15,6 +15,24 @@ server.pack.register({
   }
 });
 
+var encoderEvents = server.plugins['hapi-video-encoder'].events;
+
+encoderEvents.on('start', function (data) {
+  console.log('started', data);
+});
+
+encoderEvents.on('progress', function (data) {
+  console.log('progress', data);
+});
+
+encoderEvents.on('stop', function (data) {
+  console.log('stop', data);
+});
+
+encoderEvents.on('error', function (error) {
+  console.error('error', error);
+});
+
 server.start(function () {
   console.log('Example file server listening');
 });

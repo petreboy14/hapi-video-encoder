@@ -35,6 +35,7 @@
     "fluent-ffmpeg": "^1.7.2",
     "hoek": "^2.3.0",
     "joi": "^4.6.1",
+    "node-uuid": "^1.4.1",
     "s3-upload-stream": "^0.4.0",
     "temp": "^0.8.0",
     "through2": "^1.0.0"
