@@ -5,11 +5,12 @@ var defaultOptions = {
   output: 'file',
   file: {},
   s3: {
-    acl: 'bucket-owner-full-control'
+    acl: 'bucket-owner-full-control',
+    endpoint: 'https://s3.amazonaws.com'
   },
-  fileParam: 'file',
   route: {
     path: '/media',
+    fileParam: 'file',
     maxBytes: 5368709120 // 5 GB
   },
   ffmpeg: {
