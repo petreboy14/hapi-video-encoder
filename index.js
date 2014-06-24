@@ -2,7 +2,11 @@ var Hoek = require('hoek');
 var encoder = require('./lib/encoder');
 
 var defaultOptions = {
-  output: 'stream',
+  output: 'file',
+  file: {
+    outputPath: __dirname + '/../this-is-a-test.mp4'
+  },
+  s3: {},
   fileParam: 'file',
   route: {
     path: '/media',
@@ -11,15 +15,16 @@ var defaultOptions = {
   ffmpeg: {
     videoCodec: 'libx264',
     audioCodec: 'libfaac',
-    speed: 'slow',
     nolog: true,
     options: [
       '-pix_fmt yuv420p',
-      '-profile:v high',
-      '-crf 18',
+      '-profile:v baseline',
+      '-preset fast',
+      '-crf 23',
       '-movflags',
       '+faststart',
-      '-vf "scale=trunc(in_w/2)*2:trunc(in_h/2)*2"'
+      '-vf scale=trunc(in_w/2)*2:trunc(in_h/2)*2',
+      '-f mp4'
     ]
   }
 };

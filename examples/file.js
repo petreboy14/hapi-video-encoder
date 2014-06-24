@@ -1,12 +1,12 @@
 var Hapi = require('hapi');
 
-var server = new Hapi.Server(8000, 'localhost');
+var server = new Hapi.Server(8000, 'localhost', { cors: true });
 server.pack.register({
   plugin: require('../index'),
   options: {
     output: 'file',
     file: {
-      outputPath: '../../boom.mp4'
+      outputPath: __dirname + '/../../boom.mp4'
     }
   }
 }, function (err) {
@@ -16,5 +16,5 @@ server.pack.register({
 });
 
 server.start(function () {
-  console.log('Example stream server listening');
+  console.log('Example file server listening');
 });
