@@ -1,6 +1,6 @@
 {
   "name": "hapi-video-encoder",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Plugin for streaming uploaded video media to ffmpeg",
   "main": "index.js",
   "scripts": {
