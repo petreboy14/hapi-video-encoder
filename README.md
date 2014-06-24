@@ -97,6 +97,26 @@ server.pack.register({
     ```
     $ curl -X POST -F file=@video1.avi http://localhost:8000/media;key=/super/cool/key.mov
     ```
+
+## Events
+An event-emitter is exposed through the plugin interface which will report transcoding information. It can be accessed through the server object:
+
+```
+var emitter = server.plugins['hapi-video-encoder'].emitter;
+emitter.on('transcode-start', function (info) {
+ console.log(info);
+});
+```
+
+### Event Names
+* transcode-start - When transcoding has begun. Will return an object with job id and details about the file
+* transcode-progress - FFmpeg progress details for job.
+* transcode-error - Emitted when receiving an error event from ffmpeg
+* transcode-end - The stream has been completely transcoded
+* s3-start - Starting to upload stream to S3
+* s3-progress - Progress event for S3 uploading
+* s3-end - Object successfully uploaded to S3
+* s3-error - Return an s3 error
   
 ## Default FFmpeg Settings
 The current default settings of ffmpeg are geared towards generating html5 compatible mp4 files. Those settings and explanations are:
