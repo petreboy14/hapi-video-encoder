@@ -1,0 +1,40 @@
+{
+  "name": "hapi-video-encoder",
+  "version": "0.1.0",
+  "description": "Plugin for streaming uploaded video media to ffmpeg",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/lab/bin/lab test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/petreboy14/hapi-video-encoder.git"
+  },
+  "keywords": [
+    "hapi",
+    "ffmpeg",
+    "video",
+    "stream",
+    "upload",
+    "encode",
+    "decode"
+  ],
+  "author": "Peter Henning",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petreboy14/hapi-video-encoder/issues"
+  },
+  "homepage": "https://github.com/petreboy14/hapi-video-encoder",
+  "devDependencies": {
+    "hapi": "^6.0.2",
+    "jshint": "^2.5.1",
+    "lab": "^3.2.1",
+    "precommit-hook": "^1.0.2"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^1.7.2",
+    "hoek": "^2.3.0",
+    "joi": "^4.6.1",
+    "through2": "^0.5.1"
+  }
+}
