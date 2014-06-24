@@ -97,6 +97,27 @@ server.pack.register({
     ```
     $ curl -X POST -F file=@video1.avi http://localhost:8000/media;key=/super/cool/key.mov
     ```
+  
+## Default FFmpeg Settings
+The current default settings of ffmpeg are geared towards generating html5 compatible mp4 files. Those settings and explanations are:
+
+* videoCodec: 'libx264' - Pretty standard codec for handling the h.264 video compression format
+* audioCodec: 'libfaac' - Again a standard codec for handling most audio formats
+* options: [
+  * -pix_fmt yuv420p - Pixel format that is widely compatible with different players and devices. 
+  * -profile:v baseline - Allows compatability with a wide range of devices and platforms
+  * -preset fast - Tradeoff for faster transcoding but less compression
+  * -crf 23 - Specifies overall quality rating. This is a middle of the road setting,
+  * -movflags +faststart - Lets the video play almost immediately for the user providing a better experience
+  * vf scale=trunc(in_w/2)*2:trunc(in_h/2)*2 - Make sure the video doesn't have an odd width or height
+  * -f mp4 - Specifies the result container to be mp4
+]
+
+## TODO
+* Allow a reporting system to be configured that will allow notifications on transcoding progress, completions, and errors. Currently it's very much a fire and forget (and go look up manually later) process.
+* Allow a stream interface to pipe streaming transcodings to. This is useful for streaming media formats
+* Handle screenshot generation. FFmpeg allows for multiple screenshots while transcoding video. Want to expose this functionality.
+* Generate mulitple formats from same input stream. Right now you can only create 1 format from 1 input. 
 
 ## Considerations
 * Storage space - While most transcodings can be streamed into the transcoder there are some formats that have to be written to disk after transcoding (such as mp4). And some media formats (such as quicktime) must be read completely from disk before transcoding even begins. For this reason you should ensure that you have enough disk space to handle the expected amount of transcoding jobs. 
