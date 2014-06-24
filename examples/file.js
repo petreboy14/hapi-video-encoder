@@ -6,7 +6,7 @@ server.pack.register({
   options: {
     output: 'file',
     file: {
-      outputPath: __dirname + '/../../boom.mp4'
+      outputPath: __dirname + '/../boom.mp4'
     }
   }
 }, function (err) {
