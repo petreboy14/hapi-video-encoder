@@ -15,7 +15,7 @@ server.pack.register({
   }
 });
 
-var encoderEvents = server.plugins['hapi-video-encoder'].events;
+var encoderEvents = server.plugins['hapi-video-encoder'].emitter;
 
 encoderEvents.on('transcode-start', function (data) {
   console.log('started', data);
