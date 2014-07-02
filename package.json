@@ -36,7 +36,7 @@
     "hoek": "^2.3.0",
     "joi": "^4.6.1",
     "knox": "^0.9.0",
-    "knox-mpu": "^0.1.6",
+    "knox-mpu": "https://github.com/nuts/knox-mpu/tarball/master",
     "node-uuid": "^1.4.1",
     "s3-upload-stream": "^0.4.0",
     "temp": "^0.8.0",
