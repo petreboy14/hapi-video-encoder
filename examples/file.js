@@ -5,6 +5,7 @@ server.pack.register({
   plugin: require('../index'),
   options: {
     output: 'file',
+    tempDir: __dirname + '/../',
     file: {
       outputPath: __dirname + '/../boom.mp4'
     }
