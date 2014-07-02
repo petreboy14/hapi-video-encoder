@@ -4,6 +4,7 @@ var encoder = require('./lib/encoder');
 var defaultOptions = {
   output: 'file',
   file: {},
+  tempDir: '/tmp',
   s3: {
     acl: 'bucket-owner-full-control',
     endpoint: 'https://s3.amazonaws.com'
