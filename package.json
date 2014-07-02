@@ -39,6 +39,7 @@
     "knox-mpu": "^0.1.6",
     "node-uuid": "^1.4.1",
     "s3-upload-stream": "^0.4.0",
+    "streaming-s3": "^0.3.2",
     "temp": "^0.8.0",
     "through2": "^1.0.0"
   }
